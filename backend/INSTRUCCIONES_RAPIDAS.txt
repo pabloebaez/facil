@@ -1,0 +1,49 @@
+========================================
+INSTRUCCIONES RÁPIDAS PARA CORRER EL BACKEND
+========================================
+
+1. ABRIR TERMINAL en la carpeta backend
+
+2. EJECUTAR:
+   php artisan serve
+
+3. El servidor iniciará en: http://localhost:8000
+
+4. Para detener: Presiona Ctrl+C
+
+========================================
+ANTES DE CORRER EL SERVIDOR:
+========================================
+
+Asegúrate de haber ejecutado:
+
+1. composer install
+2. Configurar .env (DB_PASSWORD, etc.)
+3. php artisan migrate
+4. php artisan db:seed --class=DatabaseSeeder
+
+========================================
+SI HAY ERRORES:
+========================================
+
+- Verifica que MySQL esté corriendo
+- Verifica las credenciales en .env
+- Ejecuta: php artisan config:clear
+- Ejecuta: php artisan cache:clear
+
+========================================
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
