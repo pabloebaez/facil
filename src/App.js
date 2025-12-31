@@ -21,6 +21,7 @@ import { Login } from './components/auth/Login';
 import { ProtectedRoute } from './components/auth/ProtectedRoute';
 import { LoadingOverlay } from './components/ui/Loading';
 import { Logo } from './components/ui/Logo';
+import { AboutModal } from './components/ui/AboutModal';
 
 function AppContent() {
   const [user, setUser] = useState(getUser());
@@ -58,6 +59,7 @@ function AppContent() {
   const [loadingMessage, setLoadingMessage] = useState('Cargando...');
   const [initialDataLoaded, setInitialDataLoaded] = useState(false);
   const [showWeightModal, setShowWeightModal] = useState(false);
+  const [showAboutModal, setShowAboutModal] = useState(false);
   const [pendingWeightProduct, setPendingWeightProduct] = useState(null);
   const [pendingWeightCartItemId, setPendingWeightCartItemId] = useState(null);
   const [scaleReading, setScaleReading] = useState(null);
@@ -1611,9 +1613,15 @@ function AppContent() {
        <div className="main-header mb-4 sm:mb-6 flex flex-col gap-3 sm:gap-4">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-4">
           <div className="flex items-center gap-3">
-            <Logo size="md" className="hidden sm:block" />
-            <Logo size="sm" className="sm:hidden" />
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 text-center sm:text-left">
+            <button
+              onClick={() => setShowAboutModal(true)}
+              className="cursor-pointer hover:opacity-80 transition-opacity flex items-center justify-center"
+              aria-label="Acerca de QAnticoPOS"
+            >
+              <Logo size="lg" className="hidden sm:block" />
+              <Logo size="md" className="sm:hidden" />
+            </button>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-800 text-center sm:text-left flex items-center">
               {companyInfo?.name || 'QAntico POS'}
             </h1>
           </div>
@@ -1800,6 +1808,13 @@ function AppContent() {
            saleNumber={pendingReturnSale.sale_number || pendingReturnSale.id}
          />
        )}
+       
+       {/* Modal Acerca de */}
+       <AboutModal 
+         isOpen={showAboutModal} 
+         onClose={() => setShowAboutModal(false)} 
+       />
+       
        {/* Loading global overlay */}
        {isLoading && <LoadingOverlay message={loadingMessage} />}
     </div>

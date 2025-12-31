@@ -11,7 +11,7 @@ export function Logo({ className = '', animated = false, size = 'md' }) {
   const animationClass = animated ? 'animate-pulse' : '';
 
   return (
-    <div className={`${sizeClasses[size]} ${animationClass} flex-shrink-0`}>
+    <div className={`${sizeClasses[size]} ${animationClass} flex-shrink-0 flex items-center justify-center`}>
       <img 
         src="/logo_qapos.svg" 
         alt="QAntico POS Logo" 
