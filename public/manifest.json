@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "QAntico POS",
+  "name": "QAntico POS - Sistema de Punto de Venta",
   "icons": [
     {
       "src": "favicon.ico",
